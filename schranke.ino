@@ -13,8 +13,8 @@ int greenlight = 8;
 
 
 Servo myServo;
-int servo_open = 30;
-int servo_closed = 120;
+int servo_open = 50;
+int servo_closed = 140;
 
 int servoPosition;
 int servoSpeed = 2;
@@ -63,7 +63,7 @@ void loop() {
   duration = pulseIn(echo, HIGH);
 
 Serial.print(((duration/2)/29.1));
-if(((duration/2)/29.1) <= distance){
+if((((duration/2)/29.1) > 0) && ((duration/2)/29.1) <= distance){
     lcd.setCursor(0,0);
     lcd.print("Schranke geht zu!  ");
     digitalWrite(greenlight, LOW);
